@@ -1,0 +1,11 @@
+login: Lara
+password: LaraTop
+role: Admin
+
+login: Mike
+password: Manager123
+role: Manager
+
+login: John
+password: Client456
+role: Client
