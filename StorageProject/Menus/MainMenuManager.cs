@@ -4,40 +4,22 @@
     public class MainMenuManager
     {
         public delegate void MenuAction(string message);
-
         //Zdarzenie wywołane po zakończeniu operacji
-        public static event MenuAction? OnAction;
         public static void MainMenu()
         {
             while (true)
             {
                 Console.WriteLine("Główne Menu:");
                 Console.WriteLine("1. Zarządzanie magazynem");
-                Console.WriteLine("2. Zapisz dane do pliku");
-                Console.WriteLine("3. Wczytaj dane z pliku");
-                Console.WriteLine("4. Wyjdź z programu");
+                Console.WriteLine("2. Wyjdź z programu");
 
-                switch (SelectNumber(1, 4))
+                switch (SelectNumber(1, 2))
                 {
                     case 1:
                         Console.Clear();
                         StorageMenu.StorageManager.StorageMain();
                         break;
                     case 2:
-                        Console.Clear();
-                        Console.WriteLine("Zapis danych do pliku...");
-                        DataSystem.SaveData();
-                        OnAction?.Invoke("");
-                        MainMenu();
-                        break;
-                    case 3:
-                        Console.Clear();
-                        Console.WriteLine("Wczytywanie danych z pliku...");
-                        DataSystem.GetData();
-                        OnAction?.Invoke("");
-                        MainMenu();
-                        break;
-                    case 4:
                         Console.WriteLine("Program się kończy...");
                         Environment.Exit(0);
                         break;

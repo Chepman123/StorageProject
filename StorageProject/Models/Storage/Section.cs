@@ -4,7 +4,9 @@
         {
             // Podstawowe wartości sekcji
             public int id_Section { get; set; }
-            public List<Boxes.Box> Boxes = new List<Boxes.Box>();
+            public List<Box> Boxes { get; set; } = new List<Box>();
+        
+            public Section() { }
 
             // Przypisuje id przy tworzeniu
             public Section(int id)
@@ -12,7 +14,7 @@
                 id_Section = id;
             }
             // Dodaje pudełko do sekcji
-            public void AddBox(Boxes.Box box)
+            public void AddBox(Box box)
             {
                 Boxes.Add(box);
             }
@@ -37,7 +39,7 @@
                     Console.WriteLine("Sekcja jest pusta");
                     return;
                 }
-                foreach(Boxes.Box box in Boxes)
+                foreach(Box box in Boxes)
                 {
                     box.ShowInfo();
                 }

@@ -4,7 +4,7 @@
         public static class Storage
         {
             // Lista wszystkich sekcji
-            public static List<Section> sections = new List<Section>();
+            public static List<Section> sections { get; set; } = new List<Section>();
 
             // Metoda zmieniająca położenie pudełka
             public static void MoveBox(int id_section, int new_id_section, int id_box)
@@ -19,7 +19,7 @@
                     }
 
                     // Zmiana sekcji pudełka
-                    Boxes.Box box = sections[id_section].Boxes[id_box];
+                    Box box = sections[id_section].Boxes[id_box];
                     sections[id_section].Boxes.Remove(box);
                     box.MoveBox(new_id_section);
                     sections[new_id_section].Boxes.Add(box);
@@ -44,14 +44,14 @@
                 for (int i = 0; i < sections.Count; i++)
                 {
                     sections[i].id_Section = i;
-                    foreach (Boxes.Box box in sections[i].Boxes)
+                    foreach (Box box in sections[i].Boxes)
                     {
                         box.id_section = i;
                     }
                 }
             }
             // Metoda dodająca nowe pudełko
-            public static void AddBox(Boxes.Box box, int id_section)
+            public static void AddBox(Box box, int id_section)
             {
                 // Zmienia sekcję pudełka i dodaje go do wybranej sekcji
                 box.MoveBox(id_section);

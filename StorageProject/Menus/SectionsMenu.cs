@@ -2,6 +2,7 @@
 using StorageProject.Models.Users;
 using StorageProject.utils;
 
+
 namespace StorageProject.Menus
 {
     public class SectionsMenu
@@ -81,8 +82,6 @@ namespace StorageProject.Menus
             {
                 Console.Clear();
 
-                Boxes.Box box;
-
                 Console.WriteLine("Wybierz typ:");
                 Console.WriteLine("1.Owocy");
                 Console.WriteLine("2.Warzywa");
@@ -100,14 +99,8 @@ namespace StorageProject.Menus
                 Console.Clear();
 
                 // Tworzy pudełko z podanymi wartościami 
-                if (type == 1)
-                {
-                    box = new Boxes.BoxWithFruits(Storage.sections[which].Boxes.Count, which, countInBox, typeObject, LogInSystem.user ?? new User("root",Role.Client));
-                }
-                else
-                {
-                    box = new Boxes.BoxWithVegetables(Storage.sections[which].Boxes.Count, which, countInBox, typeObject,LogInSystem.user ?? new User("root", Role.Client));
-                }
+                Box box = new Box(Storage.sections[which].Boxes.Count, typeObject, countInBox, LogInSystem.user ?? new User("root", Role.Client),(BoxType)type);
+
 
                 // Dodaje pudełko do sekcji
                 Storage.sections[which].AddBox(box);

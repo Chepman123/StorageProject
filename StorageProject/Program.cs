@@ -11,10 +11,6 @@ namespace StorageProject
             LogInSystem.OnLoginResult += UIHelper.EndLogin;
             LogInSystem.OnLoginResult += UIHelper.EndTask;
 
-            // Subskrypcja zdarzeń menu głównego
-            MainMenuManager.OnAction += UIHelper.ShowMessage;
-            MainMenuManager.OnAction += UIHelper.EndTask;
-
             // Subskrypcja zdarzeń menu magazynu
             StorageMenu.StorageManager.OnAction += UIHelper.ShowMessage;
             StorageMenu.StorageManager.OnAction += UIHelper.EndTask;
